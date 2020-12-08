@@ -7,22 +7,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="assets/images/filkom.jpg" type="image/ico" />
+    <link rel="icon" href="http://localhost:8080/assets/images/filkom.jpg" type="image/ico" />
 
     <title> Halaman Pemilik E-CLEAN </title>
 
     <!-- Bootstrap -->
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="assets/nprogress/nprogress.css" rel="stylesheet">
+    <link href="http://localhost:8080/assets/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="assets/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="http://localhost:8080/assets/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- bootstrap-progressbar -->
-    <link href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="assets/css/custom.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/assets/css/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -32,7 +32,7 @@
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
                         <center>
-                            &nbsp; <a href="index_pemilik" class="fa fa-mortar-board fa-2x" style="color:#fff;"><span>
+                            &nbsp; <a href="http://localhost:8080/layanan/index_pemilik" class="fa fa-mortar-board fa-2x" style="color:#fff;"><span>
                                     <font size="4.95" color="white" face="Helvetica Neue">E-CLEAN SYSTEM</font>
                                 </span></a>
                         </center>
@@ -43,7 +43,7 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="assets/images/lol.png" alt="..." class="img-circle profile_img">
+                            <img src="http://localhost:8080/assets/images/lol.png" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Selamat Datang</span>
@@ -58,7 +58,7 @@
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
                             <ul class="nav side-menu">
-                                <li><a href="index_pemilik"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
+                            <li><a href="index_pemilik"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-table"></i> Data Service Sepatu <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -121,7 +121,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open">
                                 <a href="#" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="assets/images/lol.png" alt="">Yunico Ardian Pradana
+                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Yunico Ardian Pradana
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Keluar</a>
@@ -135,42 +135,68 @@
 
             <!-- page content - HALAMAN UTAMA ISI DISINI -->
             <div class="right_col" role="main">
-                <center><br><br><br><br><br><br><br><br>
-                    <img src="assets/images/shoes1.jpg" width="200px height=" 200px" /> <br>
-                    <font Size="6" face="Helvetica">Aplikasi E-Clean</font> <br>
-                    <font Size="6">Pokok e kinclong pol wes...... semongko</font>
+                <center>
+                    <font size="6">Lihat Data</font>
                 </center>
-
+                <hr>
+                <form action="http://localhost:8080/transaksi/daftar_transaksi" method="post">
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Id Invoice</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" name="nama_pelanggan" class="form-control" size="4" value="<?php echo $transaksi['id_invoice']; ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Id Pemesanan</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" name="nama_pelanggan" class="form-control" size="4" value="<?php echo $transaksi['id_pemesanan']; ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Bukti Pembayaran</label>
+                        <div class="col-md-6 col-sm-6">
+                            <?php
+                                echo $transaksi['bukti_pembayaran'];
+                            ?>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <input type="submit" name="submit" class="btn btn-primary" value="Kembali ke Daftar Transaksi">
+                        </div>
+                    </div>
+                </form>
             </div>
-            <!-- /page content -->
-
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Copyright @ 2020 E-Clean : Yunico Ardian Pradana
-                </div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
         </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Copyright @ 2020 E-Clean : Yunico Ardian Pradana
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
     </div>
 
     <!-- jQuery -->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:8080/assets/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="assets/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="http://localhost:8080/assets/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
-    <script src="assets/fastclick/lib/fastclick.js"></script>
+    <script src="http://localhost:8080/assets/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="assets/nprogress/nprogress.js"></script>
+    <script src="http://localhost:8080/assets/nprogress/nprogress.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="http://localhost:8080/assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="assets/iCheck/icheck.min.js"></script>
+    <script src="http://localhost:8080/assets/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="assets/skycons/skycons.js"></script>
+    <script src="http://localhost:8080/assets/skycons/skycons.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="assets/js/custom.min.js"></script>
+    <script src="http://localhost:8080/assets/js/custom.min.js"></script>
 
 </body>
 

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta charset="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Clean | Situs Layanan Sepatu Online</title>
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/css/Style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<meta charset="utf-8">
+	<meta charset="viewport" content="width=device-width, initial-scale=1">
+	<title>E-Clean | Situs Layanan Sepatu Online</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/Style.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
-
 <body>
-    <nav class="nav">
+	<nav class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
-                <a href="http://localhost:8080/" class="text-gray">E-Clean</a>
+                <a href="http://localhost:8080/public/" class="text-gray">E-Clean</a>
             </div>
             <div class="toggle-collapse">
                 <div class="toggle-icons">
@@ -22,7 +20,7 @@
             </div>
             <div>
                 <ul class="nav-items">
-                    <li class="nav-link">
+                <li class="nav-link">
                         <a href="/">Home</a>
                     </li>
                     <li class="nav-link">
@@ -32,18 +30,18 @@
                         <a href="/promo/promo">Promo</a>
                     </li>
                     <?php
-                    if (!empty(session()->get('username'))) {
-                        echo '<li class="nav-link">';
-                        echo  '<a href="/order">Order</a>';
-                        echo '</li>';
-                    }
+                    if(!empty(session()->get('username'))) {
+			                echo '<li class="nav-link">';
+                      echo  '<a href="/order">Order</a>';
+                      echo '</li>';
+                    }               
                     ?>
                     <li class="nav-link">
-                        <a href="/review">Review</a>
+                        <a href="/review/review">Review</a>
                     </li>
                     <?php
-                    if (!empty(session()->get('username'))) {
-                        echo '<li class="nav-link">';
+                    if(!empty(session()->get('username'))) {
+			            echo '<li class="nav-link">';
                         echo '<a href="/logout">Logout</a>';
                         echo '</li>';
                     } else {
@@ -53,7 +51,7 @@
                         echo '<li class="nav-link">';
                         echo '<a href="/login_owner">Login Owner</a>';
                         echo '</li>';
-                    }
+                    }   
                     ?>
                 </ul>
             </div>
@@ -67,32 +65,21 @@
     </nav>
 
     <!-- label -->
-    <section class="label">
-        <div class="container">
-            <p>Home / Order / New Order</p>
-        </div>
-    </section>
-    <!-- about -->
-    <section class="about">
-        <div class="container">
-            <h3>PESAN LAYANAN SEPATU</h3>
-            <form action="http://localhost:8080/order/new_order/checkout" class="formulir" method="get">
-                <p>Pilih Layanan</p>
-                <select id="layanan" name="layanan">
-                    <?php
-                    foreach ($layanan as $key => $data) {
-                        echo "<option value=\"" . $data['id_layanan'] . "\">". $data['nama_layanan'] ." - Rp. " . $data['harga_layanan'] . " per pasang</option>";
-                    }
-                    echo "</select>"
-                    ?>
-                </select>
-                <p>Masukkan Jumlah Pasang Sepatu Anda Yang Ingin Dilayani</p>
-                <input id="jumlah" name="jumlah" min="1" required type="number"></input>
-                <input id="tombol-cek" type="submit" value="PESAN SEKARANG"></input>
-            </form>
-    </section>
+	<section class="label">
+		<div class="container">
+			<p>Home / Order / Check</p>
+		</div>
+	</section>
+	<!-- about -->
+	<section class="about">
+		<div class="container">
+        <h1>STATUS UNTUK PEMESANAN DENGAN ID <?php echo $pemesanan_dicek['id_pemesanan']?></h1>
+        <h3>Status: </h3>
+        <h3><?php echo $pemesanan_dicek['status'];?></h3>
+        <br>
+	</section>
 
-    <footer class="footer">
+	<footer class="footer">
         <div class="container">
             <div class="about-us" data-aos="fade-right" data-aos-delay="200">
                 <h2>About us</h2>
@@ -142,5 +129,4 @@
         </div>
     </footer>
 </body>
-
 </html>

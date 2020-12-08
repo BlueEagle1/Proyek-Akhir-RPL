@@ -53,7 +53,10 @@
                     }               
                     ?>
                     <li class="nav-link">
-                        <a href="#">Review</a>
+                        <a href="/promo/promo">Promo</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/review/review">Review</a>
                     </li>
                     <?php
                     if(!empty(session()->get('username'))) {

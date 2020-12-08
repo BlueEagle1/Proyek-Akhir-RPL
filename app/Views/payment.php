@@ -75,21 +75,51 @@
     <!-- about -->
     <section class="about">
         <div class="container">
-            <h3>PESAN LAYANAN SEPATU</h3>
-            <form action="http://localhost:8080/order/new_order/checkout" class="formulir" method="get">
-                <p>Pilih Layanan</p>
-                <select id="layanan" name="layanan">
-                    <?php
-                    foreach ($layanan as $key => $data) {
-                        echo "<option value=\"" . $data['id_layanan'] . "\">". $data['nama_layanan'] ." - Rp. " . $data['harga_layanan'] . " per pasang</option>";
+            <h1>HALAMAN PEMBAYARAN</h1>
+            <h3>SILAKAN TRANSFER MELALUI BANK KELOMPOK 2 DENGAN NO. REK. 123456</h3>
+            <form action="http://localhost:8080/order/new_order/confirm_payment" class="formulir" method="get">
+                <h3>Anda harus membayar sebesar Rp. <?php
+                    $hargaAwal = $layanan_dipesan['harga_layanan'];
+                    $harga = $layanan_dipesan['harga_layanan'];
+                    if (isset($promo)) {
+                        if ($promo['opsi_pengurangan'] == 'Angka Langsung') {
+                            $harga = $harga - ($promo['pengurangan'] * $jumlah);
+                        } else {
+                            $harga = ($harga * $jumlah) * ((100 - $promo['pengurangan']) / 100);
+                        }
+                    } else {
+                        $harga = $harga * $jumlah;
                     }
-                    echo "</select>"
-                    ?>
-                </select>
-                <p>Masukkan Jumlah Pasang Sepatu Anda Yang Ingin Dilayani</p>
-                <input id="jumlah" name="jumlah" min="1" required type="number"></input>
-                <input id="tombol-cek" type="submit" value="PESAN SEKARANG"></input>
+                    echo $harga?></h3>
+                <p>Unggah Bukti Pembayaran Anda</p>
+                <div class="pembungkus-tombol">
+                    <label class="tombol-unggah" for="berkas-yang-diunggah">Unggah Foto</label>
+                    <input accept=".jpeg,.png,.tiff" id="berkas-yang-diunggah" multiple name="foto_bukti" required type="file" />
+                </div>
+                <p>Unggah Foto Sepatu Anda</p>
+                <div class="pembungkus-tombol">
+                    <label class="tombol-unggah" for="berkas-yang-diunggah2">Unggah Foto</label>
+                    <input accept=".jpeg,.png,.tiff" id="berkas-yang-diunggah2" multiple name="foto_sepatu" required type="file" />
+                </div>
+                <input type="text" hidden name="id_layanan" value="<?php echo cache()->get('cache_layanan')?>">
+                <input type="text" hidden name ="id_pelanggan" value="<?php echo $pelanggan['id_pelanggan']?>">
+                <input type="text" hidden name ="jumlah" value="<?php echo $jumlah?>">
+                <input type="text" hidden name="pengurangan" value="<?php 
+                if (isset($promo)) {
+                    $pengurangan = ($hargaAwal * $jumlah) * ($promo['pengurangan'] / 100);
+                    echo $pengurangan;
+                    } else {
+                        echo 0;
+                    }?>">
+                <input type="text" hidden name ="total_harga" value="<?php echo $harga?>">
+                <input type="text" hidden name ="tanggal_pemesanan" value="<?php
+                date_default_timezone_set("Asia/Jakarta");
+                echo date("Y-m-d H:i:s");?>">
+                <input id="tombol-cek" type="submit" value="BAYAR SEKARANG"></input>
             </form>
+            <div class="tombol-link">
+                <a class="link-putih" href="http://localhost:8080/cancel_order/" onclick="return confirm('Yakin ingin membatalkan pemesanan ini?')">BATALKAN PEMESANAN</a>
+            </div>
     </section>
 
     <footer class="footer">

@@ -26,6 +26,9 @@
                     <li class="nav-link">
                         <a href="/about">About</a>
                     </li>
+                    <li class="nav-link">
+                        <a href="/promo/promo">Promo</a>
+                    </li>
                     <?php
                     if(!empty(session()->get('username'))) {
 			                echo '<li class="nav-link">';
@@ -34,7 +37,7 @@
                     }               
                     ?>
                     <li class="nav-link">
-                        <a href="#">Review</a>
+                        <a href="/review/review">Review</a>
                     </li>
                     <?php
                     if(!empty(session()->get('username'))) {
@@ -71,7 +74,7 @@
 	<section class="about">
 		<div class="container">
 			<img src="/assets/Blog-post/care.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
-			<h3>ABOUT</h3>
+            <h3>ABOUT</h3>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</strong>, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</strong>, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 			<h3>VISI</h3>

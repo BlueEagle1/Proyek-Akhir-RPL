@@ -37,12 +37,19 @@ $routes->get('/order/check/', 'Home::check');
 $routes->get('/order/new_order/', 'Home::new_order');
 $routes->get('/order/new_order/checkout', 'Home::checkout');
 $routes->get('/order/new_order/confirm_checkout/', 'Home::confirm_checkout');
+$routes->get('/order/new_order/confirm_checkout/check_promo_code/', 'Home::check_promo_code');
+$routes->get('/order/new_order/purge_promo/', 'Home::purge_promo');
+$routes->get('/order/new_order/payment/', 'Home::payment');
+$routes->get('/order/new_order/confirm_payment/', 'Home::confirm_payment');
+$routes->get('/order/new_order/create_invoice/', 'Home::create_invoice');
+$routes->get('/order_completed', 'Home::order_completed');
+$routes->get('/order/check/status/', 'Home::status');
 $routes->get('/login/', 'Home::login');
 $routes->get('/login_owner', 'Home::login_owner');
 $routes->get('/logout/', 'Home::logout');
 $routes->get('/index_pemilik/', 'Home::index_pemilik');
-$routes->get('/daftar_layanan/', 'Home::daftar_layanan');
-$routes->get('/tambah_layanan/', 'Home::tambah_layanan');
+$routes->get('/review', 'Home::review');
+$routes->get('/cancel_order', 'Home::cancel_order');
 
 /**
  * --------------------------------------------------------------------
