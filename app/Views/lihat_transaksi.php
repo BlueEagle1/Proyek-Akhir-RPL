@@ -47,7 +47,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Selamat Datang</span>
-                            <h2>Yunico Ardian</h2>
+                            <h2>Alfen Hasiholan Napitupulu</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -121,7 +121,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open">
                                 <a href="#" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Yunico Ardian Pradana
+                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Alfen Hasiholan Napitupulu
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Keluar</a>
@@ -147,17 +147,33 @@
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Id Pemesanan</label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pemesan</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" name="nama_pelanggan" class="form-control" size="4" value="<?php echo $transaksi['id_pemesanan']; ?>" readonly>
+                            <input type="text" name="id_pelanggan" class="form-control" size="4" value="<?php
+                                        use App\Models\ModelPelanggan;
+                                        use App\Models\ModelPemesanan;
+                                        $pelanggan = new ModelPelanggan();
+                                        $pemesanan = new ModelPemesanan();
+                                        $data_pemesanan = $pemesanan->peroleh_pemesanan2($transaksi['id_pemesanan']);
+                                        $data_pelanggan = $pelanggan->peroleh_pelanggan2($data_pemesanan['id_pelanggan']);
+                                        echo $data_pelanggan['nama_lengkap']; ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Email Pemesan</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" name="id_pelanggan" class="form-control" size="4" value="<?php
+                                        $pelanggan = new ModelPelanggan();
+                                        $pemesanan = new ModelPemesanan();
+                                        $data_pemesanan = $pemesanan->peroleh_pemesanan2($transaksi['id_pemesanan']);
+                                        $data_pelanggan = $pelanggan->peroleh_pelanggan2($data_pemesanan['id_pelanggan']);
+                                        echo $data_pelanggan['email']; ?>" readonly>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Bukti Pembayaran</label>
                         <div class="col-md-6 col-sm-6">
-                            <?php
-                                echo $transaksi['bukti_pembayaran'];
-                            ?>
+                        <img src="<?= base_url('unggahan/'.$transaksi['bukti_pembayaran']) ?>" width="519.5" height="400"/>
                         </div>
                     </div>
                     <div class="item form-group">
@@ -173,7 +189,7 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Copyright @ 2020 E-Clean : Yunico Ardian Pradana
+                Copyright @ 2020 E-Clean : Hosea Goldstein Mangunsong-Marbun
             </div>
             <div class="clearfix"></div>
         </footer>

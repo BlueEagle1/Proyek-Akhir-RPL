@@ -47,7 +47,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Selamat Datang</span>
-                            <h2>Yunico Ardian</h2>
+                            <h2>Alfen Hasiholan Napitupulu</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -123,7 +123,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open">
                                 <a href="#" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Yunico Ardian Pradana
+                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Alfen Hasiholan Napitupulu
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Keluar</a>
@@ -149,24 +149,30 @@
                                     <th>No</th>
                                     <th>Id Pemesanan</th>
                                     <th>Id Layanan</th>
-                                    <th>Id Pelanggan</th>
+                                    <th>Nama Pelanggan</th>
                                     <th>Jumlah Pasang Sepatu</th>
                                     <th>Total Harga</th>
                                     <th>Tindakan</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php
+                                <?php
+
+                                use App\Models\ModelPelanggan;
+
                                 foreach ($pemesanan as $key => $data) { ?>
                                     <tr>
                                         <td><?php echo $key + 1; ?></td>
                                         <td><?php echo $data['id_pemesanan'] ?></td>
-                                        <td><?php echo $data['id_layanan'] ?></td>
-                                        <td><?php echo $data['id_pelanggan'] ?></td>
+                                        <td><?php echo $data['id_layanan']; ?></td>
+                                        <td><?php
+                                            $pelanggan = new ModelPelanggan();
+                                            $data_pelanggan = $pelanggan->peroleh_pelanggan2($data['id_pelanggan']);
+                                            echo $data_pelanggan['nama_lengkap']; ?></td>
                                         <td><?php echo $data['jumlah_pasang_sepatu'] ?></td>
                                         <td><?php echo $data['total_harga'] ?></td>
                                         <td>
-                                            <?php echo '<a href="http://localhost:8080/pemesanan/sunting_pemesanan/'.$data['id_pemesanan'].'" class="btn btn-success btn-sm">Sunting</a>';
+                                            <?php echo '<a href="http://localhost:8080/pemesanan/sunting_pemesanan/' . $data['id_pemesanan'] . '" class="btn btn-success btn-sm">Sunting</a>';
                                             ?>
                                         </td>
                                     <?php } ?>
@@ -181,7 +187,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Copyright @ 2020 E-Clean : Yunico Ardian Pradana
+                    Copyright @ 2020 E-Clean : Hosea Goldstein Mangunsong-Marbun
                 </div>
                 <div class="clearfix"></div>
             </footer>

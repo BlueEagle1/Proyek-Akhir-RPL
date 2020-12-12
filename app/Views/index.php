@@ -45,6 +45,9 @@
                     <li class="nav-link">
                         <a href="/about">About</a>
                     </li>
+                    <li class="nav-link">
+                        <a href="/promo/promo">Promo</a>
+                    </li>
                     <?php
                     if(!empty(session()->get('username'))) {
 			                echo '<li class="nav-link">';
@@ -52,9 +55,6 @@
                       echo '</li>';
                     }               
                     ?>
-                    <li class="nav-link">
-                        <a href="/promo/promo">Promo</a>
-                    </li>
                     <li class="nav-link">
                         <a href="/review/review">Review</a>
                     </li>

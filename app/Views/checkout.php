@@ -144,6 +144,11 @@
         alert(\'' . session()->get('salah_kode_promo') . '\');
         </script>';
     }
+    if (session()->get('salah_layanan')) {
+        echo '<script type="text/javascript">
+        alert(\'' . session()->get('salah_layanan') . '\');
+        </script>';
+    }
     ?>
 </body>
 

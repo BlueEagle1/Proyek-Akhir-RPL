@@ -60,9 +60,13 @@ class Otorisasi extends Controller
                 $session->set('username', $username);
                 return redirect()->to('/');
             } else {
+                $_SESSION['salah_password'] = "Maaf, password anda yang masukkan salah";
+                $session->markAsFlashData('salah_password');
                 return redirect()->to('/login/');
             }
         } else {
+            $_SESSION['username_tidak_terdaftar'] = "Maaf, username tidak terdaftar dalam sistem";
+            $session->markAsFlashData('username_tidak_terdaftar');
             return redirect()->to('/login/');
         }
     }
@@ -82,10 +86,14 @@ class Otorisasi extends Controller
                 $session->set('username_pemilik', $username_pemilik);
                 return redirect()->to('/');
             } else {
+                $_SESSION['salah_password'] = "Maaf, password anda yang masukkan salah";
+                $session->markAsFlashData('salah_password');
                 return redirect()->to('/login_owner/');
             }
         }
         else {
+            $_SESSION['username_tidak_terdaftar'] = "Maaf, username tidak terdaftar dalam sistem";
+            $session->markAsFlashData('username_tidak_terdaftar');
             return redirect()->to('/login_owner/');
         }
     }

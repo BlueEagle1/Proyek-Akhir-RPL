@@ -13,6 +13,11 @@ class ModelPelanggan extends Model
         return $this->table('pelanggan')->where('username', $username)->get()->getRowArray();
     }
 
+    public function peroleh_pelanggan2($id)
+    {
+        return $this->table('pelanggan')->where('id_pelanggan', $id)->get()->getRowArray();
+    }
+
     public function sisip_pelanggan($data)
     {
         return $this->db->table($this->table)->insert($data);

@@ -47,7 +47,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Selamat Datang</span>
-                            <h2>Yunico Ardian</h2>
+                            <h2>Alfen Hasiholan Napitupulu</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -59,8 +59,6 @@
                         <div class="menu_section">
                             <ul class="nav side-menu">
                                 <li><a href="http://localhost:8080/index_pemilik"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
-                                </li>
-                                <li><a href="index_pemilik"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-table"></i> Data Service Sepatu <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -123,7 +121,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open">
                                 <a href="#" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Yunico Ardian Pradana
+                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Alfen Hasiholan Napitupulu
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Keluar</a>
@@ -148,19 +146,34 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Id Invoice</th>
-                                    <th>Id Pemesanan</th>
+                                    <th>Nama Pemesan</th>
+                                    <th>Email Pemesan</th>
                                     <th>Tindakan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
+
+                                use App\Models\ModelPelanggan;
+                                use App\Models\ModelPemesanan;
+
                                 foreach ($transaksi as $key => $data) { ?>
                                     <tr>
                                         <td><?php echo $key + 1; ?></td>
                                         <td><?php echo $data['id_invoice'] ?></td>
-                                        <td><?php echo $data['id_pemesanan'] ?></td>
-                                        <td>
-                                            <?php echo '<a href="http://localhost:8080/transaksi/lihat_transaksi/'.$data['id_invoice'].'" class="btn btn-success btn-sm">Lihat</a>';
+                                        <td><?php
+                                        $pelanggan = new ModelPelanggan();
+                                        $pemesanan = new ModelPemesanan();
+                                        $data_pemesanan = $pemesanan->peroleh_pemesanan2($data['id_pemesanan']);
+                                        $data_pelanggan = $pelanggan->peroleh_pelanggan2($data_pemesanan['id_pelanggan']);
+                                        echo $data_pelanggan['nama_lengkap']; ?></td>
+                                        <td><?php
+                                        $pelanggan = new ModelPelanggan();
+                                        $pemesanan = new ModelPemesanan();
+                                        $data_pemesanan = $pemesanan->peroleh_pemesanan2($data['id_pemesanan']);
+                                        $data_pelanggan = $pelanggan->peroleh_pelanggan2($data_pemesanan['id_pelanggan']);
+                                        echo $data_pelanggan['email']; ?></td>
+                                        <td><?php echo '<a href="http://localhost:8080/transaksi/lihat_transaksi/' . $data['id_invoice'] . '" class="btn btn-success btn-sm">Lihat</a>';
                                             ?>
                                         </td>
                                     <?php } ?>
@@ -175,7 +188,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Copyright @ 2020 E-Clean : Yunico Ardian Pradana
+                    Copyright @ 2020 E-Clean : Hosea Goldstein Mangunsong-Marbun
                 </div>
                 <div class="clearfix"></div>
             </footer>

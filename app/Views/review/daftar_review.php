@@ -47,7 +47,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Selamat Datang</span>
-                            <h2>Yunico Ardian</h2>
+                            <h2>Alfen Hasiholan Napitupulu</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -123,7 +123,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open">
                                 <a href="#" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Yunico Ardian Pradana
+                                    <img src="http://localhost:8080/assets/images/lol.png" alt="">Alfen Hasiholan Napitupulu
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Keluar</a>
@@ -174,7 +174,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Copyright @ 2020 E-Clean : Yunico Ardian Pradana
+                    Copyright @ 2020 E-Clean : Hosea Goldstein Mangunsong-Marbun
                 </div>
                 <div class="clearfix"></div>
             </footer>
